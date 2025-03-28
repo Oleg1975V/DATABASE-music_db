@@ -42,9 +42,6 @@ VALUES
     ('Physical', 235, 5),
     ('Lonely Track', 180, 6);
     
-
-
-
 -- Заполнение таблицы сборников (4+ сборника)
 INSERT INTO collections (name, year_release) 
 VALUES 
@@ -53,8 +50,7 @@ VALUES
     ('Rap Classics', 2015),
     ('Electronic Vibes', 2020),        
     ('Golden Rock Collection', 2018);
-    
-    
+        
 -- Связи исполнителей с жанрами
 INSERT INTO artist_genre (artist_id, genre_id) 
 VALUES 
