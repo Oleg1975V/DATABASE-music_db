@@ -24,19 +24,22 @@ VALUES
     ('Abbey Road', 1969),
     ('Like a Virgin', 1984),
     ('The Marshall Mathers LP', 2000),
-    ('Random Access Memories', 2013);
+    ('Random Access Memories', 2013),
+    ('Future Nostalgia', 2020);
 
 -- Заполнение таблицы треков (6+ треков)
 INSERT INTO tracks (title, duration, album_id) 
 VALUES 
-    ('Come Together', 259, 1),          
+    ('Come Together', 259, 1),         
     ('My Universe', 420, 1),            
-    ('Material Girl', 244, 2),         
-    ('Like a Virgin', 220, 2),         
+    ('Material Girl', 244, 2),          
+    ('Like a Virgin', 220, 2),          
     ('Stan', 404, 3),                   
     ('Мой последний трек', 210, 3),     
-    ('Get Lucky', 369, 4),              
-    ('Instant Crush', 337, 4);          
+    ('Get Lucky', 369, 4),             
+    ('Instant Crush', 337, 4),          
+    ('Don''t Start Now', 330, 5),       
+    ('Physical', 235, 5);               
 
 -- Заполнение таблицы сборников (4+ сборника)
 INSERT INTO collections (name, year_release) 
@@ -45,7 +48,8 @@ VALUES
     ('Pop Hits 80s', 2010),
     ('Rap Classics', 2015),
     ('Electronic Vibes', 2020),        
-    ('Golden Rock Collection', 2018);  
+    ('Golden Rock Collection', 2018);
+    
     
 -- Связи исполнителей с жанрами
 INSERT INTO artist_genre (artist_id, genre_id) 
