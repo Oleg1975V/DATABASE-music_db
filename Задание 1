@@ -29,14 +29,14 @@ VALUES
 -- Заполнение таблицы треков (6+ треков)
 INSERT INTO tracks (title, duration, album_id) 
 VALUES 
-    ('Come Together', 259, 1),
-    ('Here Comes the Sun', 185, 1),
-    ('Material Girl', 244, 2),
-    ('Like a Virgin', 220, 2),
-    ('Stan', 404, 3),
-    ('The Real Slim Shady', 284, 3),
-    ('Get Lucky', 369, 4),
-    ('Instant Crush', 337, 4);
+    ('Come Together', 259, 1),          
+    ('My Universe', 420, 1),            
+    ('Material Girl', 244, 2),         
+    ('Like a Virgin', 220, 2),         
+    ('Stan', 404, 3),                   
+    ('Мой последний трек', 210, 3),     
+    ('Get Lucky', 369, 4),              
+    ('Instant Crush', 337, 4);          
 
 -- Заполнение таблицы сборников (4+ сборника)
 INSERT INTO collections (name, year_release) 
@@ -44,38 +44,22 @@ VALUES
     ('Best of 60s', 2005),
     ('Pop Hits 80s', 2010),
     ('Rap Classics', 2015),
-    ('Electronic Vibes', 2020),
-    ('Golden Rock Collection', 2018);
-
+    ('Electronic Vibes', 2020),        
+    ('Golden Rock Collection', 2018);  
+    
 -- Связи исполнителей с жанрами
 INSERT INTO artist_genre (artist_id, genre_id) 
 VALUES 
-    (1, 1),   -- The Beatles -> Rock
-    (2, 2),    -- Madonna -> Pop
-    (3, 3),    -- Eminem -> Hip-Hop
-    (4, 4),    -- Daft Punk -> Electronic
-    (5, 1),    -- Queen -> Rock
-    (2, 1);    -- Madonna также в Rock
+    (1, 1), (2, 2), (3, 3), (4, 4), (5, 1), (2, 1);
 
 -- Связи исполнителей с альбомами
 INSERT INTO artist_album (artist_id, album_id) 
 VALUES 
-    (1, 1),    -- The Beatles -> Abbey Road
-    (2, 2),    -- Madonna -> Like a Virgin
-    (3, 3),    -- Eminem -> The Marshall Mathers LP
-    (4, 4),    -- Daft Punk -> Random Access Memories
-    (5, 1);    -- Queen -> Abbey Road 
+    (1, 1), (2, 2), (3, 3), (4, 4), (5, 1);
 
 -- Связи сборников с треками
 INSERT INTO collection_track (collection_id, track_id) 
 VALUES 
-    (1, 1),    -- Best of 60s -> Come Together
-    (1, 2),     -- Best of 60s -> Here Comes the Sun
-    (2, 3),     -- Pop Hits 80s -> Material Girl
-    (2, 4),     -- Pop Hits 80s -> Like a Virgin
-    (3, 5),     -- Rap Classics -> Stan
-    (3, 6),     -- Rap Classics -> The Real Slim Shady
-    (4, 7),     -- Electronic Vibes -> Get Lucky
-    (4, 8),     -- Electronic Vibes -> Instant Crush
-    (5, 1),     -- Golden Rock Collection -> Come Together
-    (5, 2);     -- Golden Rock Collection -> Here Comes the Sun
+    (1, 1), (1, 2), (2, 3), (2, 4), 
+    (3, 5), (3, 6), (4, 7), (4, 8), 
+    (5, 1), (5, 2);
