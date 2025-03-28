@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS artist_genre (
     PRIMARY KEY (artist_id, genre_id)
 );
 
-
 -- Создание таблицы связи сборников и треков (многие-ко-многим)
 CREATE TABLE IF NOT EXISTS collection_track (
     collection_id INT NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
