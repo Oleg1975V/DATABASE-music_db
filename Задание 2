@@ -6,7 +6,7 @@ SELECT title, duration FROM tracks ORDER BY duration DESC LIMIT 1;
 
 -- 2. Треки ≥ 3,5 минут
 SELECT title, duration FROM tracks WHERE duration >= 210;
--- Вернет все 8 треков
+-- Вернет все 10 треков
 
 -- 3. Сборники 2018-2020
 SELECT name FROM collections WHERE year_release BETWEEN 2018 AND 2020;
