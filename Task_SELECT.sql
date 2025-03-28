@@ -21,6 +21,7 @@ SELECT title FROM tracks
 WHERE LOWER(title) LIKE '%my%' OR LOWER(title) LIKE '%мой%';
 -- Результат: My Universe, Мой последний трек
 
+
 -- Задание 3
 
 -- Количество исполнителей в каждом жанре
@@ -61,6 +62,7 @@ JOIN albums a ON t.album_id = a.id
 JOIN artist_album aa ON a.id = aa.album_id
 JOIN artists ar ON aa.artist_id = ar.id
 WHERE ar.name = 'Madonna';
+
 
 -- Задание 4
 
