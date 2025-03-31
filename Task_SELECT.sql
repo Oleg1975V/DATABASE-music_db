@@ -16,12 +16,39 @@ SELECT name FROM collections WHERE year_release BETWEEN 2018 AND 2020;
 SELECT name FROM artists WHERE name NOT LIKE '% %';
 -- Результат: Madonna, Eminem, Queen
 
--- 5. Треки с "мой" или "my"
+-- 5. Треки с "мой" или "my" (переделал)
+-- Решение с использованием ILIKE, не учитывают знаков препинаний и дефисов!
 SELECT title FROM tracks 
-WHERE LOWER(title) LIKE '%my%' OR LOWER(title) LIKE '%мой%';
+where (title ILIKE 'my %'     
+    OR title ILIKE '% my'   
+    OR title ILIKE '% my %' 
+    OR title = 'my')        
+    OR (title ILIKE 'мой %' 
+    OR title ILIKE '% мой' 
+    OR title ILIKE '% мой %' 
+    OR title = 'мой');
 -- Результат: My Universe, Мой последний трек
 
+-- Решение с использованием регулярных выражений
+SELECT title FROM tracks
+WHERE title ~* '\m(my|мой)\M'; 
 
+--подход с string_to_array, lower и оператором пересечения массивов &&
+SELECT title
+FROM tracks
+WHERE 
+    string_to_array(
+        regexp_replace(
+            lower(title), 
+            '[^a-zа-я0-9]',  -- Оставляем только буквы и цифры
+            ' ',             -- Заменяем все остальное на пробелы
+            'g'              -- Заменяем глобально (всю строку)
+        ), 
+        ' '                  -- Разбиваем на массив по пробелам
+    ) && ARRAY['my', 'мой']; -- Проверяем пересечение
+-- позволяет производиь выборку с учетом пробелое, дефисов и знаков препинания
+
+    
 -- Задание 3
 
 -- Количество исполнителей в каждом жанре
@@ -63,7 +90,6 @@ JOIN artist_album aa ON a.id = aa.album_id
 JOIN artists ar ON aa.artist_id = ar.id
 WHERE ar.name = 'Madonna';
 
-
 -- Задание 4
 
 -- Названия альбомов, в которых присутствуют исполнители более чем одного жанра
@@ -103,6 +129,3 @@ HAVING COUNT(t.id) = (
     ORDER BY 1
     LIMIT 1
 );
-
-
-
